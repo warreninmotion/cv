@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Warren in Motion</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Warren van der Ploeg helpt bedrijven weer in beweging. Aanjager voor organisaties die klaar zijn voor de volgende stap.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Figtree:wght@400;500;600&display=swap">
+<style>
+/* Layout: één kolom die "in beweging" leest: grote typografische uitspraken, een driestaps tuinmetafoor, resultaten als bewijs, verhalen om open te klappen. */
+:root{
+  --bg:#F2F4F1;          /* licht, met een zweem groen */
+  --surface:#FFFFFF;
+  --ink:#131D18;         /* diep groenzwart */
+  --muted:#58635D;
+  --line:#D6DCD7;
+  --accent:#2547E6;      /* kobalt: beweging */
+  --accent-ink:#FFFFFF;
+  --sun:#FFB21E;         /* optimisme, spaarzaam */
+  --sun-ink:#131D18;
+  --font-display:"Bricolage Grotesque", "Arial Narrow", system-ui, sans-serif;
+  --font-body:"Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --step--1:.875rem; --step-0:1.0625rem; --step-1:1.3rem; --step-2:1.75rem; --step-3:2.5rem; --step-4:clamp(2.6rem,7vw,5.2rem);
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0F1512; --surface:#18201C; --ink:#EAF0EC; --muted:#A3AFA8; --line:#2A3530;
+  --accent:#7C93FF; --accent-ink:#0F1512; --sun:#FFC14D; --sun-ink:#0F1512; color-scheme:dark }}
+:root[data-theme="dark"]{
+  --bg:#0F1512; --surface:#18201C; --ink:#EAF0EC; --muted:#A3AFA8; --line:#2A3530;
+  --accent:#7C93FF; --accent-ink:#0F1512; --sun:#FFC14D; --sun-ink:#0F1512; color-scheme:dark }
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--font-body);font-size:var(--step-0);line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1040px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+section{padding-block:clamp(48px,8vw,96px)}
+h1,h2,h3{font-family:var(--font-display);line-height:1.05;text-wrap:balance;margin:0}
+h2{font-size:var(--step-3);font-weight:800;letter-spacing:-.02em}
+h3{font-size:var(--step-1);font-weight:600}
+p{margin:0;max-width:62ch}
+.eyebrow{font-size:var(--step--1);font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
+
+/* Hero */
+.hero{padding-block:clamp(40px,7vw,88px) clamp(40px,6vw,72px)}
+.hero-top{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:clamp(32px,6vw,72px)}
+.brand{font-family:var(--font-display);font-weight:800;font-size:var(--step-1);letter-spacing:-.01em}
+.brand span{color:var(--accent)}
+.personal{font-size:var(--step--1);background:var(--sun);color:var(--sun-ink);padding:6px 12px;border-radius:999px;font-weight:600}
+.hero h1{font-size:var(--step-4);font-weight:800;letter-spacing:-.035em;max-width:14ch}
+.hero h1 .move{display:inline-block;color:var(--accent);animation:nudge 3.2s ease-in-out 1s 2}
+@keyframes nudge{0%,100%{transform:translateX(0)}40%{transform:translateX(.12em)}60%{transform:translateX(-.04em)}}
+.lede{display:grid;grid-template-columns:minmax(0,1fr);gap:clamp(24px,5vw,64px);margin-top:clamp(28px,4vw,44px);align-items:end}
+.lede p{font-size:var(--step-1);line-height:1.5}
+.who{font-size:var(--step--1);color:var(--muted);border-left:3px solid var(--sun);padding-left:14px}
+.who strong{display:block;color:var(--ink);font-size:var(--step-0)}
+.ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:999px;font-weight:600;text-decoration:none;border:2px solid var(--ink);background:transparent;color:var(--ink);font:inherit;font-weight:600;cursor:pointer}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn:hover{transform:translateY(-1px)}
+
+/* Tuin */
+.garden{background:var(--ink);color:var(--bg)}
+.garden .eyebrow{color:var(--sun)}
+.garden-intro{display:grid;gap:16px;margin-bottom:40px}
+.garden-intro p{color:color-mix(in srgb,var(--bg) 80%,transparent);font-size:var(--step-1)}
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2px;list-style:none;margin:0;padding:0;counter-reset:s}
+.steps li{padding:24px;border-top:3px solid var(--sun);display:grid;gap:8px;align-content:start}
+.steps .n{font-family:var(--font-display);font-weight:800;font-size:var(--step-2);color:var(--sun)}
+.steps p{color:color-mix(in srgb,var(--bg) 78%,transparent);font-size:var(--step--1)}
+
+/* Resultaten */
+.results-head{display:grid;gap:12px;margin-bottom:36px}
+.results{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.result{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px;display:grid;gap:6px;align-content:start}
+.result .big{font-family:var(--font-display);font-weight:800;font-size:var(--step-3);letter-spacing:-.03em;color:var(--accent);font-variant-numeric:tabular-nums;line-height:1}
+.result .what{font-weight:600}
+.result .where{font-size:var(--step--1);color:var(--muted)}
+
+/* Verhalen */
+.stories{display:grid;gap:12px;margin-top:32px}
+details.story{background:var(--surface);border:1px solid var(--line);border-radius:14px}
+details.story summary{list-style:none;cursor:pointer;padding:20px 22px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px;align-items:center}
+details.story summary::-webkit-details-marker{display:none}
+.story .tag{font-size:var(--step--1);color:var(--muted)}
+.story .plus{width:32px;height:32px;border-radius:50%;background:var(--sun);color:var(--sun-ink);display:grid;place-items:center;font-weight:800;transition:transform .2s}
+details[open] .plus{transform:rotate(45deg)}
+.story-body{padding:0 22px 22px;display:grid;gap:12px}
+.story-body p{color:var(--ink)}
+.story-body .result-line{font-weight:600;color:var(--accent)}
+
+/* Loopbaan */
+.timeline{list-style:none;margin:32px 0 0;padding:0;display:grid;gap:0}
+.timeline li{display:grid;grid-template-columns:9rem minmax(0,1fr);gap:24px;padding-block:20px;border-top:1px solid var(--line)}
+.timeline .when{font-size:var(--step--1);color:var(--muted);font-variant-numeric:tabular-nums;padding-top:3px}
+.timeline .role{font-weight:600}
+.timeline .org{color:var(--muted)}
+.timeline p{margin-top:6px;font-size:var(--step--1)}
+
+/* Quote */
+.quote{background:var(--sun);color:var(--sun-ink)}
+.quote blockquote{margin:0;font-family:var(--font-display);font-weight:600;font-size:clamp(1.6rem,3.6vw,2.6rem);line-height:1.2;letter-spacing:-.02em;max-width:28ch}
+.quote cite{display:block;margin-top:20px;font-style:normal;font-size:var(--step--1);font-weight:600}
+.traits{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
+.traits span{border:1.5px solid var(--sun-ink);border-radius:999px;padding:4px 12px;font-size:var(--step--1);font-weight:600}
+
+/* Zoek */
+.seek{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,5vw,64px)}
+.roles{list-style:none;padding:0;margin:16px 0 0;display:flex;flex-wrap:wrap;gap:8px}
+.roles li{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:6px 12px;font-size:var(--step--1);font-weight:500}
+.learn{font-size:var(--step--1);color:var(--muted);display:grid;gap:6px;margin-top:16px}
+
+/* Contact */
+.side{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(24px,5vw,56px);align-items:center}
+.side img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:12px}
+.side p{margin-top:16px}
+.facts{display:flex;flex-wrap:wrap;gap:12px 28px;margin:24px 0;padding:0;list-style:none}
+.facts li{display:grid}
+.facts b{font-family:var(--font-display);font-weight:800;font-size:var(--step-2);letter-spacing:-.02em;color:var(--accent)}
+.facts span{font-size:var(--step--1);color:var(--muted,inherit)}
+@media (max-width:720px){.side{grid-template-columns:1fr}.side img{aspect-ratio:4/3}}
+.contact{border-top:1px solid var(--line)}
+.contact h2{font-size:var(--step-4);letter-spacing:-.035em;max-width:16ch}
+.contact-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:28px}
+.mail{font-family:var(--font-display);font-size:var(--step-2);font-weight:600;user-select:all;overflow-wrap:anywhere}
+.copied{font-size:var(--step--1);color:var(--accent);min-height:1.2em}
+footer{padding-block:28px;color:var(--muted);font-size:var(--step--1)}
+
+
+
+/* Beeld */
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:clamp(24px,5vw,56px);align-items:center}
+.hero-media{margin:0;position:relative}
+.hero-media video{display:block;width:100%;max-width:100%;aspect-ratio:9/14;object-fit:cover;border-radius:22px;background:var(--line)}
+.hero-media::after{content:"";position:absolute;inset:auto -10px -10px auto;width:46%;height:46%;border-right:4px solid var(--sun);border-bottom:4px solid var(--sun);border-radius:0 0 26px 0;pointer-events:none}
+.steps .ic{width:56px;height:56px;padding:12px;box-sizing:content-box;color:var(--sun);border:1.5px solid color-mix(in srgb,var(--sun) 45%,transparent);border-radius:50%;margin-bottom:12px}
+.steps li{padding:24px 0;border-top:1px solid color-mix(in srgb,var(--bg) 18%,transparent)}
+.steps li:last-child{opacity:1}
+.steps{gap:24px}
+.steps .n{display:none}
+
+/* Toegang */
+.gate{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:24px;align-items:center;background:var(--ink);color:var(--bg);border-radius:16px;padding:clamp(22px,4vw,36px)}
+.gate p{margin-top:8px;color:color-mix(in srgb,var(--bg) 80%,transparent)}
+.gate-actions{display:grid;gap:10px;justify-items:start}
+.gate .btn.primary{background:var(--sun);border-color:var(--sun);color:var(--sun-ink)}
+.gate-mail{font-size:var(--step--1);color:color-mix(in srgb,var(--bg) 75%,transparent);overflow-wrap:anywhere}
+.sel{user-select:all}
+body.unlocked #teaser{display:none}
+.preview-bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--surface);border-bottom:1px solid var(--line);font-size:var(--step--1)}
+.preview-bar .wrap{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;padding-block:10px}
+.preview-bar button{font:inherit;font-weight:600;border:1.5px solid var(--ink);background:transparent;color:var(--ink);border-radius:999px;padding:4px 12px;cursor:pointer}
+.preview-bar button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+@media (max-width:760px){.gate{grid-template-columns:1fr}}
+@media (max-width:760px){
+  .hero-grid{grid-template-columns:1fr}
+  .hero-media video{aspect-ratio:4/5}
+  .hero-media::after{inset:auto -6px -6px auto}
+  .lede,.seek{grid-template-columns:1fr}
+  .steps,.results{grid-template-columns:1fr}
+  .timeline li{grid-template-columns:1fr;gap:4px}
+}
+@media (min-width:761px) and (max-width:960px){.results{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.btn:hover{transform:none}}
+@media print{
+  .hero-media,.steps img{display:none!important}
+  .preview-bar,#teaser{display:none!important}
+  .ctas,.contact-row button,.personal,.copied{display:none!important}
+  details.story .story-body{display:grid!important}
+  section{padding-block:20px}
+  .garden,.quote{background:none;color:#000}
+}
+</style>
+</head>
+<body>
+
+
+<div class="preview-bar" id="previewbar" hidden><div class="wrap"><strong>Voorbeeld</strong><span>Bekijk als:</span><button type="button" id="pv-teaser" aria-pressed="true">Bezoeker zonder link</button><button type="button" id="pv-full" aria-pressed="false">Met persoonlijke link</button></div></div>
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-top">
+      <div class="brand">Warren <span>in Motion</span></div>
+      <div class="personal" id="personal" hidden></div>
+    </div>
+    <div class="hero-grid">
+    <div class="hero-text">
+    <h1>Ik help bedrijven weer in <span class="move">beweging.</span></h1>
+    <div class="lede">
+      <p>Elke organisatie komt op een punt waar de volgende stap gezet kan worden. Daar word ik blij van. Ik zie vaak snel waar de kansen liggen en wat er nog in de weg zit, maak er samen met het team een plan voor en zorg dat het ook echt gebeurt. Met energie, humor en een flinke dosis optimisme. Dat doe ik al bijna twintig jaar, van mijn stage in een sportclub tot het managementteam van Technogym Benelux.</p>
+      <div class="who"><strong>Warren van der Ploeg</strong>Marketingmanager en MT-lid bij Technogym Benelux · Veenendaal</div>
+    </div>
+    <div class="ctas">
+      <a class="btn primary" href="#contact" data-umami-event="cta-contact-hero">Laten we praten</a>
+      <a class="btn" href="#tuin" data-umami-event="cta-tuin-hero">Zo werk ik</a>
+      <button class="btn" type="button" id="pdf" data-umami-event="pdf-download" hidden>Download als PDF</button>
+    </div>
+    </div>
+    <figure class="hero-media"><video src="../media/hero.mp4" poster="../media/hero-poster.jpg" autoplay muted loop playsinline aria-label="Warren in een zandkleurig pak loopt lachend door het bos op de camera af"></video></figure>
+    </div>
+  </div>
+</header>
+
+<section class="garden" id="tuin" data-section="tuin">
+  <div class="wrap">
+    <div class="garden-intro">
+      <div class="eyebrow">Zo werk ik</div>
+      <h2>Ik leg de tuin aan, anderen laten hem bloeien.</h2>
+      <p>Ik ben op mijn best aan het begin: als er iets nieuws moet komen, iets beter moet of een organisatie over een dood punt heen moet. Samen ontwerpen we de tuin en leggen we hem aan. Staat hij er, dan geef ik hem door aan de mensen die hem elke dag laten groeien. Zij kunnen dat beter dan ik. En ik word blij van de volgende plek waar iets in gang gezet mag worden.</p>
+    </div>
+    <ol class="steps">
+      <li><span class="n">1</span><svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="9" width="34" height="30" rx="3"/><path d="M7 17h34"/><path d="M14 31c4-8 8 2 12-6s6-2 8-4"/><circle cx="14" cy="31" r="2.2"/><circle cx="34" cy="21" r="2.2"/></svg><h3>Ontwerpen</h3><p>Goed luisteren, kijken waar het knelt en uitzoeken waarom. Daarna een helder plan dat iedereen snapt en kan uitleggen.</p></li>
+      <li><span class="n">2</span><svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M24 40V22"/><path d="M24 26c0-7-5-11-12-11 0 7 5 11 12 11z"/><path d="M24 22c0-6 4-10 11-10 0 6-4 10-11 10z"/><path d="M10 40h28"/></svg><h3>Aanleggen</h3><p>Samen aan de slag. Mensen enthousiast maken, het team meenemen en het plan waarmaken, met humor en duidelijke afspraken.</p></li>
+      <li><span class="n">3</span><svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 30h8l7 3h7a3 3 0 0 1 0 6H19"/><path d="M14 30v10H6"/><path d="M28 39l10-5a3 3 0 0 1 3 5l-12 6H18"/><path d="M30 24V14"/><path d="M30 17c0-4-3-7-8-7 0 4 3 7 8 7z"/><path d="M30 15c0-4 3-6 7-6 0 4-3 6-7 6z"/></svg><h3>Overdragen</h3><p>Als het loopt, zorg ik dat het ook zonder mij blijft lopen. Dan draag ik het over aan het team dat het verder laat groeien.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section id="teaser" data-section="teaser">
+  <div class="wrap">
+    <div class="gate" id="gate">
+      <div>
+        <div class="eyebrow" style="color:var(--sun)">Het volledige verhaal</div>
+        <h3 style="margin-top:8px;font-size:var(--step-2)">Zes resultaten, vier verhalen en twintig jaar in beweging.</h3>
+        <p>Mijn volledige CV deel ik graag persoonlijk. Stuur me een berichtje en je krijgt een eigen link, met wat we samen hebben bereikt, de verhalen erachter, mijn loopbaan en wat ik zoek.</p>
+      </div>
+      <div class="gate-actions">
+        <a class="btn primary" id="ask" href="mailto:warreninmotion@outlook.com?subject=Toegang%20tot%20je%20CV&amp;body=Hoi%20Warren%2C%0A%0AIk%20wil%20graag%20je%20volledige%20CV%20bekijken.%0A%0ANaam%3A%0ABedrijf%3A%0A">Vraag toegang</a>
+        <span class="gate-mail">of mail naar <span class="sel">warreninmotion@outlook.com</span></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="locked" data-iv="ySfNeJgM5SepDIxH" data-ct="fAdzE6SBpEy5cGMdiMRni_mc87K-h3IEKXvO_43IUJEnOV-zcTknJ6hb5UD4GHPj0y8Kld1qOQkiCxNZD0XdvLCjsR_EHpCOGu5WL_Mo8V7e1DFRikGPoqaTI3b7WjCUPbb2LxpwkY12pURZktxeRNLkv45jNaYYIcPc34dRWimR4LxogopTnE63xxW6ttgE1pUwcpl9uB4CzYkp_Cz_OiYurb93pd00qeYuWG__XjrHIehXyJoFvXfuq92cUfon2JtN5rRbZO9sN7ADnVy0c1wr6ds8J67MY4_NdlE54EmvP3w1Z1mOLlWcEkiMpZz3A3d5rcFguppdr-dAyrDnP0BxA7CmOESIGfDK3Ga5E43GtEjh6Npx-IeusX4MVoNoCMzw_kl8m_ensyaGhZWmGb-2Akg2fnDNojabnP-h5kBB1dXZp4Xq1a1h3VtoRaVarGb5h7SiWxWheEEzVAoVlIGAUG-FgZy8cu04a9YRw20c7_lM1y1MAan6m1ufIfw1p5JzCn2EZ9zydjSNy0UwX8TOmDxGQ7SJ7ePhqANm77wd0b_azaLFye2IcZFqRzH_oml0_MV5eDDGlcwkVfjhV1z1ahnvWo1Pjy3pQb88zyW9vRf2e_MUAbCsauoq6iXCV9UDvhQBVZ5IoH_qr8c3IjBACbchu9xfyRYFHVUG721KCipzS21Xf9eY0wQEa7lI0AiNBwXU3FuCJlch7Z6W0nG2LrihhDy1wvSyCqpDJfrKeglAJCZtDEJ7zczEwrTDWPdb4bTiTzvypDnGr2jsaKmesf7HOQXZpGnxej7i2AlMaHPACYRABau5MAd6aecApqu2xpaRhniN7gXo_bvabIw-mTs42P1Q5PCxs7ntz89710QwqBgmH9_x1qKsLL4B_cU01JfBD8OezPyhFUvVTXuA7meeCljDwbYEcjas7eUGdNE-TO5j9GRlWvH3xrleYrP7xp_PPTHxgLSAY67f1N4JW3VoLjVL9_q5vDcXVa_uWyDFIes9OMI-kTHK-iuJNl0XZsUuXxkNsyI5AnvhGmb-rtluHj9tNtEa8KZIbncvTTu_X6V4GlCD1UIE91bKj2fefb3vxTl4DibH7SX9gk_CZftM8olGUcEF-6bXHIJHHoxIxXIm8Q1nonSrbYQFUKcRmdYDasjvFNiP6z4ynZttdi93nSIiQM7uimDZRVRj4kuBFtRK6TGS14fJFpQ2caQwvLMoQUxung-9VBwzwrUgCiVTuuFRfBr8jtTCQMbGz3hAKTXWSbL_dCadkRpMMuxsCd-SMr6RnZdHNHUsDiH6DINpm3fnZYCUj4mnY_si3d3lHENhWxOAsniTqF9Jka6nNFkzKUaxD74b07pR6XQa9_3cjnFlEbz3yyNkWsmOIwK4_o6v0KQlugu5LPHf3JVGz0w2frXx31nZ92ZE1iDG1TEt0AWrZKara3AO5RcEY2GzlY0hC0YqJ40RjgKG_5nJSPC-rCWtg6bCLHti4nTMSSPgLS37Qa3cbV2LF483rbUe8j2et7AzqYEFOs1s59OAzMtkb4a6q8st13X5zxTBsHkgdaEW0r_BXAxP4Q8zbi_gaoeWgzlUyKo_pYgReYwP7_giQ97drMSXbuASfuSiXB9MS0OWfP-SAf92LHibo5KEDDuEq3N7XkdM2pI0hN9b1-eHjwRFNT85vsQLT8fhGxtM3qY--tJeHv4HuUK04y0k_ti0HlOEJc5RALmOosiC6v95xRVJlo4wFpox9aXXXwp0ghl7MBnG14KNroblemBpYaXJ9IVwBAEFg8aNmZ25696sgTXBFQkuoucR7c4e1cEu7rUByVNQeZqylnXUfZIVrSuebQEBFxV_fZXKPIbgjAA3GQQiXQJCLaAwxKZA68LXIwBCMqw3pANvHlJEbdjuI0HlaI0de_LhKzfcz4iK7IhUuOsM4ygxiVsGIzcXYe633V4Pjl11DrnaYn_CElEudRRzwKZIzRtHSTs3fy8UDmOUSZWfISLDjM5UidVYn77hxEJ_kcoAY31WpLwxe5TfZcJlFcAvLOLvQdrFfFg63bJ_pneBwEICbrRS4SDclbGYPRGqKtBtmB1SJbwLfHIplZ-O4fBORuRittCbtwHjVo-fQOvdciBWbmAmYHAQbjZrf65WeZdjYOwk17xmT2WHqdmj3x2dpMQxM1gwGZvt7KvlWsFBAbt3rK9wxOHalB1bX8MbTOvD1rk4h0B_3wSuZtkZh6nSt_ZagpJ7ulrjF-ey3_9tYbYfvEazDsMFGc43UqK6gcg3B4BpPp56dyP1dQ57KSJcZlrXL7-72TZ7quBvuvReGr_LS_py8BzZ_WOO54izChopJ44CBM5yw7eDAMcpm7q6jnrwTGpimf9HJIekKFl1wgcFLIh4hhwqrXcmDWJsXZiLFskxW1t0Uw2mz8xtkTqzGNkPExqyTSeMDApIViOtrnVGiv3XldhUD-WADxzXR9Ob-70wJ5KPtK9pTsEuj3uSf4q0olHxBWT0jPHZ8i3fJNJ_bcsC4wkN2NA_7xysBlWwWWEjEW6GuJeTPDXk_u7VLgViasB3mYd8P2Z_FnwXnRt_5tjPFdWesUR9X8DLJhyIHv6l5JDqrEcu3P57xjLKTAx5EFiTD_YJcO3q7p3KwY3rv0J4ZNVK1VdEDSpk2vnRYlLGofGAzQ2vKIKBvG9L8FYi4j48OheMX7JH4VVqczSad1Bj7OOp0Sqbfbupjf4BqfPDzYhZcgAPnD0Zts3Xlg_HRYqrEbEJ7EYfYvd07MmbZ7p_5VWc4xDlUG3crMeRdBvlEO8CPIDLJovB6L4VKvae6NyTIBTC7y4pZnU9L35pcFn4FdZbpNYlx2NSzleoBgyS2TT_5YRGAVAn3y08IxKI6fAohIv8QUl4xszJ_PyePg3AGEDH785DzBD6dv6nbOUlIK55mmjKIn7t91hSko2VyoQpsJO8mcK0RDZ_NFGqUFenjWrVyaaede8L0rdAFJiXekHhVO9u6liDtxwjOU5wrZONugNLA0ES6XWZjd2gElWZhQz8s6w4ly8EZ-3uWFv8EXSmCFs1LTW-14Qfg7-fpXnu_8cBmENwGGbCPzi-EC6fzKvhnuIq-g_1lIkziPkRWU4C5lLrHKxxQNtmzjKe_mbImX2c6x2IE4FoUY1xzPKDMwoN7OUrvF4_GkFwsq3lA_FtCc-oaPs9cB5gmsO3BgbEq9Yssy3bYg94GgDxR2Gp4erGdCAGkrOBTCK-YF8VIY8O2wOQcSd4P5tS8HOLHFx1n7geVCm9tHkT_heI0xjQma6RSSet5hV8dS8lOx7gaccdqxLEDvUa1Ii1UqT-XhjWNbGLEby2PvZs99xR4CuJ9Uaw1cpg5Tro8KjP-cB2rd_v5K1NWASe6Nyjfnlu6TFQs1NCw3rt9ctKluvO2yyrjhOpK0wNAjrXWLCGL4WYd6PDBmOlVOuzshd5G5ocTlFturwSKJ9t3B_flmOxl1c0MaMMESwQ1xq2CzeIld-HV3ngdcRuE3lKhMAgw5zx4soiApUMPcQFIBN86RjboblAdKup55ESWima9F2LZixiZ80x5poZ3e1TgC9mvC1Xhclr98tZCPIJLDJwDs63zGKNtTQ3_8LXmtkQTAHDTwwsF6fsgx7XxKg0YQNQUOFugL9Ycq2yy9ThDonhM5LUwew47uhU0-5CoDkkU3bLRmxB4J8-erlWQTT0BhcjXdRZR1NM1yrBYIuM0rKToW_OJMtxR3Rz_JubkVMVnLLCusnEX5CJ1RpqzAsq-ZGEps5h_wyMpz70OvF7SE3rN0_cN4yZsrCA0K4PvKtdTTCMLDfxRcnYJV4xiu74SdmSYuWscHByRqEr_4iXwtzRrW9OsGkaTvmT21y0RxCCT62n5uLN_ZVplPfrvvgpKjufpCXuEDd5elnuxDXg6RGJ6lPO0Cax81_Zb11mPdxqjzDVkevZ0GarSKhFnSO4sRs_EiFRfQWk7dWwYgXOyNX-Jk3MKaxWJnTkb8w1KnvBqLSYZZF64emoPeKQ0_FXSb1j4l3Y8sq5e2XpFNcjzFeuAYz_tuOqbgrOH6uC-gFAmdBwFAeyDaedUYeJWqi0VQP7n4ddlTcDMhB9FWtrYwlrYF_Xexyu-xUU5D0OeC9w3gWD4rb_PVP5OnQdBtIJX8zUxHCk57rHSE-wUcC0ALSOl2PAWVhVFwt4g38XWSqMH3ZEeqxIPPW_2K7rfGUNjV9kbslCkfNYcG0LWNHmX8cFY0BBsJ5AcCLSQbtjyF-UJs8-JY8iYNWIPFys8A6yvN5bsGKEHcpGDV7wwQrKX0MOpKHRDRhX0mY6PpPK5c_NrTNu412NNTU8X_jp2MEOzWZCZdWHwJNAUNj3TYG29M-UWxiUi58gLuywD1__lwyYHLjKNp7b7N4BTZp-7Yl0tkENZETvrzzmxMXvOvnkvnbgpsNX6jLzFTKPgcWK9QDZDrbelj6H14Ei2wrtCTdy5HrxdLO4InOf5weklt66GAmzHuDZSWGn8zblM6TOVTt0d2j5bQLsGafPr2C8cVZTYDtUKQJZQRYSkzuCknLN5UM8LrfU0Lz9vBCHRGBL43vDsTjGBW7M4mpGU2iGyxg_5LcUVFzWSWR42etloh81TYgfVWdSbxJC_86ATeDf4kdVOXwb8fr7f0sVQLLiYfEJfgF2B_2fDe8WjeyT7jzNBQF36QDVmApPf0rZ3JHG70a_iMsJz2Wk8Y_Ofe7vdJxjE0m14lMfRWbk_qwXILVoqK0k9DYlfpIE8k4Ff2pQF0PypcMZBBZvWjONlFKFuNEHRjdjmBu-BwjDfWwyLDff0-nHOuAkpWFLS_FQghzq0nKC9x4hL85ishhxn6GsrAKR5Ps-shjtexWc4cN9uc8paBVPhch-qh-_wYrG99IoJlXNj4rKp4pPetmn5yoPkDWgUh7qdNlGwutULcJi3VBXixLRQ5GgUDv_QQ0TwT5B8881m_YgONbwuSykXH2n9Qvitcxb1Aks0uta1X_NWWujjDBTOPacRnt1HZ2lX3PwRTlxL7CbYsOU6DZ7aicFnIo8cWa0DPggBfSyQKe8vUgdcPN63B1oUUKbnOS7DeVuUD6JEw4k2BcJeP-g43L3k0eo5mQhbrpiDOTIclkCHVBovDf3rxu6IlvmokEcrBhewjpjdzCC7wBdZPlhXhp117FihG3C0e0cuDsBtNhrr___hYtLryYnNsyE-oAswhyCrPmO_aHOAleIPYIB6pakQB4bjxE3wWG_ZDvAGoWGTRSYCo0rht9u9ZchzyOugUVfphcJAyNfss_57Ob-J0JG9UE2Wv_TkhYHm9_pgES7_YHplsb8HwhduGwEtnBZER5w2VMKzhK8ZcSKlv2zBcO8hLhHn95Qj5OUErem7gPMiMScx0NanW5mtggVriY7EljYvAA8Jg4F9MKUJygqiIfDBln8znn48fRwMwM-lv8-IxqukepFgbPrwBwiiBxlx_EP99nAYwruqabWGFVhlXl8iFSsHUFPGiImOMpmqJw2-IZI74DdLTXABrOvnFqxuRFU0ZIgo-9o5lQ_ZViWTyeUEcYfqkOotJwXlhb6qOxGM3Yq0tPJSDTfEyEkh4gkEC4S19xL_D2q69ULKtUZdrRp1y7BvrNYQk9mxWzNgPdhcLfH2kDPfzfKZZMVqc37obIoAuwrJA9cKW7UXCV8BF-HQ0iG3d_Dit0WiuqGOqmWm5Jpmkkq9u-AYvOMi_MY-GT0klwMv7naP4RbYWz7nqTNWGYha3V029sIidHKsz4lEhGzDcQL4KsCbppwTuZVvKG3vO3aRxX7LYd7VZfK2n3r7AMhSTeRVv-Q3fo2IKqajYzEVAI7cdAG3R25HoCDb22X4nG4DNOKnM6LPREmLXdhLfGFgvhDrtnQ3hLbbCTUS99aHsyWa_ExL015UURGp-gq6KznrMB2_BHJqOYbkKLI0rOfQEyx1b9qCDplMiKa4sKjRlLgdIuRMcglu15w5-kwnXQoQ5OsnXzC1LsXjbCmw-bOntur1HOrWtHydkyOVMJDHslv0YWizunkmc7SyIn4znLM3SMPQ_bVVW7SfTjsRb8ohADcAvceOt6AqLOQb3hd9ibbbrwOHSy2QSTB-iapTzNgKhe2jXt1ZiHEo-TmxpjQVTyGcDElDwrqw6ymtLrJobNpiUytSJfTgi8tbMjjGHBCwzv0xVS3kCsPfdyKgujT-rUTANGUaaCt-8nm3L9DjdrVkkS8AJ84wjaRNx5GSOTy-klqWUSOmEgsxQ15sibu7Dg4fV7NcNu3cVqwcIOsUjDMiXOeW7ZfLvXmM6zhJt-7ga5uP9PaGRbHiuMeOS20k_OdnHnZdxSluMbkY-OWjlSQ-ataG9nhVcv9LMIm4LgJ7M1ESycyCBB2TypzS96Bt-IBU9qQgrd1PauE7Tz4XlpCrXa-mfYC0-wCJrpUtC9ldUa4Dhmwy_0F2sybkyWUST-yely4tRNTBXGUJjKMYlotHEorIccTTiZnQUw4vWALGeZ--7k80dqjXtaYHN_fREsDu1W52hm1_gNcx_6eAZbAOgksMjH8Yr-dA-ceCHOVxgwYM1S336bDfbvYzi9ei1laNlOY0feFJeGSyFXy_RKkkIAblu_sAtJxtkE1uHRO-vnF8PemvJHnJ5Ph_8_YKmj13nJwAZJl9-TqGbfakCMr96EDQxUN7_VTAzPQqE46-xrHt8zPFdQLk-H2nuNFJJZ13DUaTgzlcq1AqYCfkpImJowTS3JGnuxcXRmeOU03yEhUZeEHWVab6OgIxTzzrzPM4OiPdCTPtYTSUkJWdLCGM5rmvEPAZlccj-89WF-avh8TqIFXXegOXZ1B6xQN5lNzm-JG-hYQ4d7Mo7YvcK8w21jiKUWF-ejzwtVaWEJyKacqHz982Lmna0rFt4Rh7Oaz67TiSSg5EAdR3vC0MnNzGfgdK2P71vugcOeZXWVdtFhMAaSeO4ZICOdqj9BSH2CLc4WKizZHuIEXJ1jAymv08ywgX6PM0s3H4v9Fbl4PRLdGiJ9aWsx3bUZ2NAABXiJLLXAvB1UPZ1aEejASG5OfXhZ7JTmXhsuiMGanh1d06dC3MDuglt_4FIfO8Cb_uxEF3RCtVzjpW_gT8GqZtF57NxWm2sO2QSzuCaBOEZ07oS3Ez_dzVgghyB806xUgHq4M5DMif4L5deuC8rgWJkhuRSVj1TMvNI7BFnYkNJ94YPDIDsw60qj8NRcYrPs1rN3nEkB2Z5BiI3XZinWwBYynGr-KYLznmTfSYPad3hy9gmEbRZm5cFU6_8GuaH3T7hpHN3pyqAADh40GaG0N08IpRAhArpO6nPYreyFQEaKwevYjcwAaAxNddyLrAbuf606jP33SxoB2h3K82vlI02J0slHaJNEiBkOePWbPOWyvi0_IQd3FPIUIqJr13qgZFLmz24IyqX2OVhnFjRwr_A0KL09175-J3UB4nwqOlUz2mrygSp6HLpAsl3mv9BmNWHq8dXBBcJJAW59mp95LT-wZGS9_Jykj7iz_3RiDNYK_eaoobFfPY6FoxO_MUh4hUajDWQpwSyeeC6Alk_qePA1JXn1tzm-IaYH0Q2cJ4wscxcT-jrFgt4FNF8isUQlRithF_SXQ-0gHUghJ84NTLtcyse0beO6whNSMAUrEtFe6JxH4B31pSfWrBGsMjl20drAq9jFzaf_HlcUDedP74ohoFa6sqHm-84nYHPoW5sPYFgCCyZHWgfC8f7vLAFzlwj9kHOfGV_XGD_9V35znl2lonT04Kp9f6VUsevLRTONDabUWxAs_MBKi14WiiaAWkGMg2jlTM6YTPkK2hyprx7SdCExBwLbuYP9RVupElvY8_3ioEEHT9FuRR5H09TST1gtw6sezjK-Shrf9cHGQRXq97_tHruPVCPAjrVOCUftCsEkYuj8ckzMQHn50F4KFqDkO1SnYp7NmxkPB5pcesHrgXW74BnKYbjq1wWKnNXtrOTy1k5noMjUJR2tG00Nnv7760Uf6sFiPCZfJH-XviXodcxpsPajjGsULNe-9f7ZFpnJj47wVR_YWa_52fFjHjCRR8upniJ5MYEoKit3vvS3QN81Ti3bJO-QKN4HLwwa_f4lqoYDnujIJUGoQBqI-luV7SLE541S4bhm-sD-BKrxviQUcRDrPW2nQmizz4E5dWxCZXxkVm7BBxQex2UGToXChqESbHVUObgb9J7EccP80Gcr4ZJPZh31vqfa1nW5y0W3hSA4JoEYRiKtNOt6cjS8wKyhRuufqkJGus2s0qQwwtGoLyiz3bxQPjiFK_hyiw7Zm-ifdcTgg8JuwRJMLzoOH7YpDhJvOEvzTufmMtUAsXz7zc_REruSwaHyATa3VcLZzJofzTIIiAELqel-lWn1l_rmcGQMnly5JWVpf4SKv_kwFRcUVP3tKrfKl7TY--dVR06gay0vLyTxZU7iH09v_ks1x2MWfilgH657AEGtwDO7OtlY4l579pXVTdi4E2I5QJkgxruqNXM1k_3NcxLBgNFVA-y5wasfSJGey-onSyTG6Wi64a9F3yXb8gW9pxAb3G6BGgZdB4L7G_1Do9JYnZj5LYX2cjri0fohcFTvR-6OmXYXgNAFt5PkQh1wyDs9-bJqCU_-yUBlHgygkm9boTmVsc7dwEonKzVw7f-BmQGHvUaUkwaUTgnt-GhHGrYXw0opVIsfik4ILZVX2VkZKNKUhFjn8JHMkjNFXk-HC7jW8YIVUPK_8_WHjcL9aFVyJOESbt6aUBSWT_Rfe8XHcepCFdByK6IVriB0UTYmHIq3p6l4xeVSkquEX-8vma7yAse20Yoin9SLziChklMmDb_7IMsT2IAtsuz6JEQjTQj8AeCQ9LM0lGyU4UTsQCYAiLiPs334cCV5HQtFssphevAdrFG2sYxtZOQKhYWLGidsctr45psVuIfoz3sjlSj41OFsvqwMdm9yT6DTpGHt-CgnHBN_qtmBH7KGW5rJLHykqrIEuQtVNnkv5dBOP-9b6kKWGcANmtVPxY11x2KZX0GiRcDlhtV1OAUlxW0A7MBv803B1vbXvqeHq-wWQuoH4ser4LJ_bCJ_nYWG71o2Uscvs_Hq37aGPKQR2flbPo2rVvtzy0pc4CMo0xrRzbdxabp6yYALu2hLh32Qh1lZQos_XfnsZN3XCOYPhjxPbBaWC4AfVhRqlYq-RQfFIzWO6Jy1bUPdu9_oczV8vH878cj6SmK8MgB6rA0w5q_HdSt-5UuNKRx3nVSs1JEF7c1Fek0xPZyAkQnB9QeCcowWJ1LEjNf9qoDphmE-KpwQGWBEjERhUwRAvmBukgn6PwW-OaVBjv_D_3za1poO1b87A-pv9U9z-3rn0HhdrTDhIZe8w1c8n8aDtPAweNNTlukucZeIeGWzOvsBVgXx4UnnMe8uvCT3xfwj0dV004LQUBNW7tVrp67tZ2D0TdDOAMxuJV9EM0eZ5b97FHKMVcmFcrxt6u8cLYp0PG9HPLc0XlsaKOLZnHfeof5odN8ifT9hLRn7zrcv9P2ZJiyCfoCemDt3IdnnIq8SiXj-JtfAodR-XMyQ_t6mf5uMN02X_wTl5I6wf7faJB0RAAweXDO9TN6XQKn6la3NW8wk3k_cJs2ui2i5kFga41tbDkbsj8xFt9ySpFDyrDqFyhA6MYAhdv84lZ0r29Pekpfw--bZPGbZEQt4JvjaU6XL4c7L5OdrkXB3dUPhIFs5hwrNbvFX4rwI8pgoEew3kV6cz9xihO6MZXCzuNvKqt90qbh-Zc7eY6jgvIETRSRlJBGfByignx2k4xPlyprSwg1nm86cY_sq0J3qmdxD0cULLcoC2p2hsenr17IP75Ru7wxK5SgseSWz-zu7FmoLmnrRHEfOZL37Gaz64qdXTzwfrtAOwy_cQVNWXRkuhzQ5LykgTddAgqEjMb9XlAAl4l5Hs-6sCP_WRVj-EgEIJifWD76JHiuVoSiLVK9uunmHPPtR4sADPBhFoFK32jvZxLjUriVqJxSx1FS7JVqeyePFnIki31_49DIz2OdDUnGX3hnDOT4PUdwgAhiYo9HUB6fiN18ta5-VqEyHrFEKXDhkMpih8Qm2EnyhlFxzor8gkUFo6wTx3I9wJBfPRXgZ_Mygs3pQbrYx9eeFph5s3MP9UIaKQ_aNPcsn26Juw8Xu3rHSu6NQvA5uIefdPX_fQ6lo6VaBY9InUCIkFLAEOujAcy2u1L6LWOC-oK2rPzODm0CGsu5IIzYqiw3piMdoz5DLxjeMaJyk78Uh8YD-OR2qI8DJBpKXsXv33zhoVegFYXQgByDK-MQRPGxwNhU_xIrPum5qhXFeg3kUxYtn7VEgMdc3ZGKyatFlTmJym04Go-tXcgca5Ghr7MsJAaNurXRGkaei8fKuuB3AN_b4SZI6o8lOUtlrQ0qTIgjm0NkaA_SpFo4Z5WoCDzRhC0GEfHT6qwhG7Vu3t1sVWd4vtMEs4llMo6rFENWxRi7dRrmnn_sw1pDHn8oNK6IDxXHVCj5vkzj9NixcOzv9snElyI49fPqbXK_BM9rhfLNPY_PRPbz6rOPSSAVjr2dMSEShz5X7J69tZM8HVJnlcrW0reDHMZ6D9ZifE3X-Paiqa453YUb4R3UEkgZmJaAvH-L0EQPb8N1qh2KVgyhwH6vrthk4oEGs2NVfU9MgWRt4_SMZLeqoPU60UgCbnGGLGwNGWwb-h9mz_aZ78mPOZTCGXYjYuTxvJR3GWtJ4LP6IwIYyZ9kooqIOwmt7vAaew5ZmXCnZZC0DM0CiCLA_Vq27H7yqsbzLquihqx76lLBT8H9oEi-NGQ-FsAZNiu3MZXi0-ejljgBQGVpgtbleVoLkTG1suDHvAvyfsWXpmKWmI-dUOc8IIS98tkSO0RLuMX6nmdW9B6xUo4K-pye5LTJdZ0vxGrzbHyQBclnJSngStumMhG0ODNbhuwoBqy6KfZHuTA_l5xlHH0CMictDRZpejazKdcWHL_rkUX-SaPPLmB_249bwoGxibIWJRKWeyJjDhY1c76c7XFQHNIT1TBARniv5VUh7AAbZQG8zn8tANXJiKnNRgzEJNOeuIrZd4qUUSjvPcJpGPaFgoTMezMUjb4p8RLTAXjYhVZ6-iViVqBGGsVJtIoT3DdPzsA7_OLqM6CrjG7Ke4Wempsx_hueg5BQBMPx0LGwTi1XOEC_kjH6UNBTSvIYjDm_FnURgwMQIkJiSwK0_tL-EMwVHzvG-JBU-EYkun8t3su4qBhXO0A4AnNgU_8KFRtcTAdukC_dnIrD0zzpEV8ze8xCMexuI8psUEKMYqg7x_i4V_3WXPSWnpDsXOR3zvKslU0FqGnhCFRfw1wbnTfSPgCu4iiOWw9HDXHKZ6fslwFNgWYITJ_DfzhoX7vUZ1mvrW_AOLy0gRQOE6xYx3XK4zN2-IYT18BnBC0QnBu7UBLuDJP83JJswmdV99lslCpDmCu1QFfjH2Z1dtC7R4AfUEbGPsY6gJBUu0cA2VaVVwtEiNY4g7RfTwDk9PtTK_7GnZJgFADShksiFgofKvaIqPoCFdF6B0oiu6H1UlYGpwBPu9wKbOOc2e55345cYkQ6dwZNhrwz9NAt7JOyG7L72JBAoawRu6A58fazKRRWfeeNhIxfArvop8wAwn5jdgz0NAXmSrndt6ei96iCCI5kNAyslst7_rCVtpHrAqoAVpBKCSyxPODkleraTjICUhX_p2grwhLoghDJwuUDo_lCCOtoe_B_Uze0AwNhN7EovHwmJkyiNK2jYgdBVvVUeWhs_0iUg9I_aWe8w"></div>
+
+<section class="side-section" id="naast" data-section="naast">
+  <div class="wrap side">
+    <img src="../media/naast.jpg" alt="Warren lachend op de racefiets in zijn straat" loading="lazy">
+    <div>
+      <div class="eyebrow">Naast mijn werk</div>
+      <h2 style="margin-top:12px">Van Lucca naar Veenendaal, voor de voedselbank</h2>
+      <p>In mei 2027 fiets ik in acht dagen van Lucca naar mijn huis in Veenendaal: langs de Ligurische kust, over de Lukmanierpas en door de Ardennen. Alles wat ik ophaal gaat naar Voedselbanken Nederland. Ik heb zo ongeveer elke sport wel gedaan, behalve wielrennen. Als je ergens je maximum hebt bereikt, zoek je iets nieuws, en dit is voor mij een flinke nieuwe uitdaging. Het idee en de route heb ik zelf bedacht, en onderweg sluiten steeds meer mensen en sponsors aan. Een stip op de horizon en dan samen trappen: zo werk ik eigenlijk altijd.</p>
+      <ul class="facts">
+        <li><b>1.570 km</b><span>in acht dagen</span></li>
+        <li><b>7</b><span>landen</span></li>
+        <li><b>1.915 m</b><span>hoogste punt</span></li>
+      </ul>
+      <a class="btn" href="https://warreninmotion.nl/" target="_blank" rel="noopener" data-umami-event="fietstocht">Volg de tocht</a>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact" data-section="contact">
+  <div class="wrap">
+    <div class="eyebrow">Contact</div>
+    <h2 style="margin-top:12px">Loopt er bij jullie iets vast?</h2>
+    <div class="contact-row">
+      <span class="mail" id="mail">warreninmotion@outlook.com</span>
+      <button class="btn primary" type="button" id="copy" data-umami-event="kopieer-email">Kopieer e-mail</button>
+      <a class="btn" href="https://www.linkedin.com/in/warren-van-der-ploeg-71a9ab18/" target="_blank" rel="noopener" data-umami-event="linkedin">LinkedIn</a>
+    </div>
+    <div class="copied" id="copied" aria-live="polite"></div>
+  </div>
+</section>
+
+<footer><div class="wrap">Warren van der Ploeg</div></footer>
+
+<script>
+(function(){
+  // Umami (cookieloos). Vul het website-ID in; zonder ID wordt er niets geladen.
+  var UMAMI_ID = "40d406e5-bc6a-4613-acdd-7f4b0f3f3cca";
+  var PREVIEW_KEY = "__PREVIEW_KEY__"; // alleen gevuld in de voorbeeldversie
+  var inFrame = (function(){ try { return window.self !== window.top; } catch(e){ return true; } })();
+  var queue = [];
+  function track(name, data){ try { if (window.umami) window.umami.track(name, data); else queue.push([name, data]); } catch(e){} }
+  if (UMAMI_ID && !inFrame){
+    var s = document.createElement("script");
+    s.defer = true; s.src = "https://cloud.umami.is/script.js";
+    s.setAttribute("data-website-id", UMAMI_ID);
+    s.onload = function(){ var q = queue; queue = []; q.forEach(function(x){ track(x[0], x[1]); }); };
+    document.head.appendChild(s);
+  }
+
+  // Persoonlijke link: warreninmotion.online/?voor=Acme#toegang=SLEUTEL
+  var voor = null;
+  try { voor = new URLSearchParams(location.search).get("voor"); } catch(e){}
+  var clean = voor ? voor.replace(/[-_]+/g," ").slice(0,40) : null;
+  var tag = clean || "-";
+  if (clean){
+    var p = document.getElementById("personal");
+    p.textContent = "Speciaal voor " + clean; p.hidden = false;
+  }
+  var key = null;
+  var m = location.hash.match(/toegang=([A-Za-z0-9_-]+)/);
+  if (m){
+    key = m[1];
+    try { sessionStorage.setItem("wim-key", key); } catch(e){}
+    try { history.replaceState(null, "", location.pathname + location.search); } catch(e){}
+  } else {
+    try { key = sessionStorage.getItem("wim-key"); } catch(e){}
+  }
+
+  function b64u(str){ str = str.replace(/-/g,"+").replace(/_/g,"/"); while (str.length % 4) str += "="; var b = atob(str), a = new Uint8Array(b.length); for (var i=0;i<b.length;i++) a[i]=b.charCodeAt(i); return a; }
+  var box = document.getElementById("locked");
+  var fullHTML = null;
+  function unlock(k){
+    if (!box || !k || !window.crypto || !crypto.subtle) return Promise.resolve(false);
+    if (fullHTML) return Promise.resolve(true);
+    return crypto.subtle.importKey("raw", b64u(k), "AES-GCM", false, ["decrypt"])
+      .then(function(ck){ return crypto.subtle.decrypt({name:"AES-GCM", iv:b64u(box.dataset.iv)}, ck, b64u(box.dataset.ct)); })
+      .then(function(buf){ fullHTML = new TextDecoder().decode(buf); return true; })
+      .catch(function(){ return false; });
+  }
+  function show(full){
+    if (full && fullHTML){ box.innerHTML = fullHTML; document.body.classList.add("unlocked"); }
+    else { box.innerHTML = ""; document.body.classList.remove("unlocked"); }
+    wire();
+  }
+
+  // Voorbeeldbalk alleen in de privévoorbeeldweergave
+  if (inFrame && PREVIEW_KEY.indexOf("__") !== 0){
+    var bar = document.getElementById("previewbar"); bar.hidden = false;
+    var bt = document.getElementById("pv-teaser"), bf = document.getElementById("pv-full");
+    var setView = function(full){ bt.setAttribute("aria-pressed", String(!full)); bf.setAttribute("aria-pressed", String(full)); unlock(PREVIEW_KEY).then(function(){ show(full); }); };
+    bt.addEventListener("click", function(){ setView(false); });
+    bf.addEventListener("click", function(){ setView(true); });
+  }
+
+  unlock(key).then(function(ok){
+    show(ok);
+    track(ok ? "bezoek-met-link" : "bezoek-teaser", {voor: tag});
+  });
+
+  // PDF-knop alleen op de echte site
+  if (!inFrame){
+    var pdf = document.getElementById("pdf"); pdf.hidden = false;
+    pdf.addEventListener("click", function(){ document.querySelectorAll("details.story").forEach(function(d){ d.open = true; }); window.print(); });
+  }
+
+  // Welke secties worden gezien, welke verhalen worden geopend (opnieuw na ontgrendelen)
+  var seen = {}, io = null;
+  function wire(){
+    if ("IntersectionObserver" in window){
+      if (io) io.disconnect();
+      io = new IntersectionObserver(function(entries){
+        entries.forEach(function(en){
+          var k = en.target.getAttribute("data-section");
+          if (en.isIntersecting && !seen[k]){ seen[k] = true; track("sectie-gezien", {sectie: k, voor: tag}); }
+        });
+      }, {threshold: .4});
+      document.querySelectorAll("[data-section]").forEach(function(el){ io.observe(el); });
+    }
+    document.querySelectorAll("details.story").forEach(function(d){
+      if (d.dataset.wired) return; d.dataset.wired = "1";
+      d.addEventListener("toggle", function(){ if (d.open) track("verhaal-open", {verhaal: d.getAttribute("data-story"), voor: tag}); });
+    });
+  }
+
+  // Scrolldiepte 25/50/75/100
+  var marks = [25,50,75,100], hit = {};
+  window.addEventListener("scroll", function(){
+    var h = document.documentElement; var max = h.scrollHeight - h.clientHeight; if (max <= 0) return;
+    var pct = (h.scrollTop / max) * 100;
+    marks.forEach(function(mk){ if (pct >= mk - 1 && !hit[mk]){ hit[mk] = true; track("scroll-" + mk, {voor: tag}); } });
+  }, {passive: true});
+
+  // Klik op de toegangsknop
+  document.getElementById("ask").addEventListener("click", function(){ track("toegang-gevraagd", {voor: tag}); });
+
+  // E-mail kopiëren
+  document.getElementById("copy").addEventListener("click", function(){
+    var txt = document.getElementById("mail").textContent, out = document.getElementById("copied");
+    var done = function(){ out.textContent = "E-mailadres gekopieerd."; };
+    var fallback = function(){ var r = document.createRange(); r.selectNodeContents(document.getElementById("mail")); var sel = getSelection(); sel.removeAllRanges(); sel.addRange(r); out.textContent = "Geselecteerd. Kopieer met Ctrl+C of Cmd+C."; };
+    try { navigator.clipboard.writeText(txt).then(done, fallback); } catch(e){ fallback(); }
+  });
+})();
+</script>
+
+</body>
+</html>
